@@ -1,0 +1,266 @@
+
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* =========================================
+   WEBCRAFT AI GLOBAL DESIGN SYSTEM
+========================================= */
+
+.website-preview > section {
+  padding-top: var(--section-spacing) !important;
+  padding-bottom: var(--section-spacing) !important;
+}
+
+.website-preview > section > div {
+  max-width: var(--container-width) !important;
+}
+
+.website-preview .rounded-xl,
+.website-preview .rounded-2xl,
+.website-preview .rounded-3xl {
+  border-radius: var(--global-radius);
+}
+
+.website-preview .shadow,
+.website-preview .shadow-sm,
+.website-preview .shadow-md,
+.website-preview .shadow-lg,
+.website-preview .shadow-xl,
+.website-preview .shadow-2xl {
+  box-shadow: var(--global-shadow);
+}
+
+/* =========================================
+   SECTION BUILDER
+========================================= */
+
+.builder-section {
+  position: relative;
+  cursor: pointer;
+  transition:
+    outline 0.15s ease,
+    background-color 0.2s ease;
+}
+
+.builder-section:hover {
+  outline: 2px dashed rgba(59, 130, 246, 0.45);
+  outline-offset: -2px;
+}
+
+.builder-section-selected {
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: -2px;
+}
+
+.builder-section-selected::before {
+  content: attr(data-builder-section);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 50;
+
+  border-radius: 7px;
+  background: #3b82f6;
+  padding: 5px 9px;
+
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: capitalize;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   SECTION COLORS + SPACING
+========================================= */
+
+.builder-section > section {
+  background-color: var(
+    --section-background,
+    inherit
+  ) !important;
+
+  color: var(
+    --section-text,
+    inherit
+  ) !important;
+
+  padding-top: var(
+    --section-padding,
+    var(--section-spacing)
+  ) !important;
+
+  padding-bottom: var(
+    --section-padding,
+    var(--section-spacing)
+  ) !important;
+}
+
+/* =========================================
+   COLUMN SYSTEM
+========================================= */
+
+/* 1 COLUMN */
+
+.builder-section[data-columns="1"]
+  .grid {
+  grid-template-columns: 1fr !important;
+}
+
+/* 2 COLUMNS */
+
+.builder-section[data-columns="2"]
+  .grid {
+  grid-template-columns: repeat(
+    2,
+    minmax(0, 1fr)
+  ) !important;
+}
+
+/* 3 COLUMNS */
+
+.builder-section[data-columns="3"]
+  .grid {
+  grid-template-columns: repeat(
+    3,
+    minmax(0, 1fr)
+  ) !important;
+}
+
+/* 4 COLUMNS */
+
+.builder-section[data-columns="4"]
+  .grid {
+  grid-template-columns: repeat(
+    4,
+    minmax(0, 1fr)
+  ) !important;
+}
+
+/* =========================================
+   MOBILE SAFETY
+========================================= */
+
+@media (max-width: 640px) {
+  .builder-section[data-columns="3"]
+    .grid,
+  .builder-section[data-columns="4"]
+    .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* =========================================
+   CONTENT ALIGNMENT
+========================================= */
+
+.builder-section[data-alignment="left"]
+  > section {
+  text-align: left;
+}
+
+.builder-section[data-alignment="center"]
+  > section {
+  text-align: center;
+}
+
+.builder-section[data-alignment="right"]
+  > section {
+  text-align: right;
+}
+
+/* =========================================
+   HERO LAYOUT
+========================================= */
+
+/*
+   Centered Hero
+*/
+
+.builder-section[data-builder-section="hero"][data-layout="centered"]
+  > section
+  > div {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+   Left Hero
+*/
+
+.builder-section[data-builder-section="hero"][data-layout="left"]
+  > section
+  > div {
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/*
+   Split Hero
+*/
+
+.builder-section[data-builder-section="hero"][data-layout="split"]
+  > section
+  > div {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    minmax(0, 1fr)
+  );
+  align-items: center;
+  gap: 48px;
+  text-align: left;
+}
+
+/* =========================================
+   CTA ALIGNMENT
+========================================= */
+
+.builder-section[data-builder-section="cta"][data-layout="left"]
+  > section
+  > div {
+  text-align: left;
+}
+
+.builder-section[data-builder-section="cta"][data-layout="center"]
+  > section
+  > div {
+  text-align: center;
+}
+
+.builder-section[data-builder-section="cta"][data-layout="right"]
+  > section
+  > div {
+  text-align: right;
+}
+
+/* =========================================
+   RESPONSIVE HERO
+========================================= */
+
+@media (max-width: 700px) {
+  .builder-section[data-builder-section="hero"][data-layout="split"]
+    > section
+    > div {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* =========================================
+   PREVENT BUILDER OUTLINE FROM CLIPPING
+========================================= */
+
+.builder-section {
+  isolation: isolate;
+}
