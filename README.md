@@ -80,31 +80,31 @@ The project is currently **frontend-only**, with AI generation simulated through
 
 ## 1. AI Website Builder
 
-![WebCraft AI Builder](screenshots/image.png)
+![WebCraft AI Builder](screenshorts/image.png)
 
 ---
 
 ## 2. AI Website Generation
 
-![AI Website Generation](screenshots/image2.png)
+![AI Website Generation](screenshorts/image2.png)
 
 ---
 
 ## 3. Website Customization
 
-![Website Customization](screenshots/image3.png)
+![Website Customization](screenshorts/image3.png)
 
 ---
 
 ## 4. Preview Mode
 
-![Preview Mode](screenshots/image4.png)
+![Preview Mode](screenshorts/image4.png)
 
 ---
 
 ## 5. Publish Website
 
-![Publish Website](screenshots/image5.png)
+![Publish Website](screenshorts/image5.png)
 
 ---
 
